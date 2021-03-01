@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
+
+use App\Models\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +25,15 @@ Route::get('/contactus', function (){
 Route::get('/aboutus', function (){
     return view('aboutus');
 })->name('aboutus');
+
+Route::get('post/create', function (){
+    DB::table('posts')->insert([
+        'title' => 'Raiym site',
+        'body' => 'Zhez'
+    ]);
+});
+
+Route::get('post', function (){
+    $post = Post::find(1);
+    return $post->body;
+});
