@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Models\Post;
 
-use App\Http\Controllers\BlogController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,4 +35,7 @@ Route::get('post/create', function (){
     ]);
 });
 
-Route::get('post', [BlogController::class, 'index']);
+Route::get('post', [PostController::class, 'index']);
+Route::get('Post/create', function() {
+    return view('post.create');
+});
